@@ -652,4 +652,31 @@
     color: black;
     box-shadow: 0 0 8px var(--accent);
   }
-    
+/* ---------- BIO GRID UI ---------- */
+
+.bio-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 1.2rem;
+}
+
+.bio-card {
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  padding: 1.2rem;
+  border-radius: 12px;
+  transition: 0.2s ease;
+}
+
+.bio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.bio-card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent);
+}

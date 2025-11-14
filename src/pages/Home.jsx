@@ -15,7 +15,7 @@ export default function Home() {
           </p>
 
           <p className="home-description">
-            On this journey, Palak combines engineering, creativity, and 
+          On this journey, Palak combines engineering, creativity, and 
             resilience to build scalable systems, intuitive interfaces, 
             and AI-driven solutions. Explore her quests, skills, and 
             battle history as she continues leveling up in the tech world.
@@ -48,7 +48,7 @@ export default function Home() {
           <Stat label="XP" value="7800" />
           <Stat label="Primary Class" value="Software Engineer" />
           <Stat label="Specialization" value="AI / Full-Stack" />
-          <Stat label="Strength" value="Leadership" />
+          <Stat label="Strength" value="Time Management" />
           <Stat label="Trait" value="Resilience" />
         </div>
       </div>

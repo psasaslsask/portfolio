@@ -25,20 +25,41 @@ export default function About() {
         {/* RIGHT: Bio + Abilities */}
         <div className="profile-right">
 
-          <section className="bio-section">
-            <h3>🧾 Lore / Biography</h3>
-            <p>
-              Born with the rare combination of determination, discipline, and creativity,
-              Palak is a warrior who mastered both the academic battlefield and the 
-              world of real-world engineering quests. After earning achievements in 
-              athletics, innovation, and accelerated scholarship, she channeled her 
-              talents into software engineering — blending logic with artistry.
-            </p>
-            <p>
-              She fights with clean architecture, efficient systems, and beautifully 
-              designed interfaces — building tools that empower users and scale with grace.
-            </p>
-          </section>
+        <section className="bio-section bio-grid">
+
+<div className="bio-card">
+  <h3>📍 Present</h3>
+  <p>
+    I’m a software engineering student focused on building reliable,
+    user-centered systems. I enjoy turning ideas into clean, functional 
+    solutions and approaching every project with clarity and intention.
+  </p>
+</div>
+
+<div className="bio-card">
+  <h3>🕰 Past</h3>
+  <p>
+    My experiences across research, leadership, athletics, and technical 
+    writing taught me discipline, consistency, and how to handle responsibility 
+    early. These roles shaped how I solve problems and collaborate: steady, 
+    focused, and always willing to learn.
+  </p>
+</div>
+
+<div className="bio-card">
+  <h3>⏭ Future</h3>
+  <p>
+    I’m excited to keep growing as an engineer who builds scalable products
+    with meaningful impact. My goal is to contribute to teams where I can apply 
+    my strengths, learn from experienced builders, and create software that’s 
+    thoughtful, dependable, and genuinely useful.
+  </p>
+</div>
+
+</section>
+
+
+
 
           <section className="ability-section">
             <h3>✨ Special Abilities</h3>
