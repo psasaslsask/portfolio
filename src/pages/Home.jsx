@@ -1,9 +1,9 @@
+import { NavLink } from "react-router-dom";
 import warrior from "../assets/warrior.png";
 
 export default function Home() {
   return (
     <div className="home-page fade-in">
-      {/* Hero Intro Section */}
       <div className="home-header">
         <img src={warrior} alt="Hero Avatar" className="home-avatar" />
 
@@ -22,14 +22,24 @@ export default function Home() {
           </p>
 
           <div className="home-buttons">
-            <a href="/projects" className="home-btn">🎒 View Quests</a>
-            <a href="/experience" className="home-btn">⚔️ Battle History</a>
-            <a href="/contact" className="home-btn highlight">💬 Join the Guild</a>
+
+            <NavLink to="/projects" className="home-btn">
+              🎒 View Quests
+            </NavLink>
+
+            <NavLink to="/experience" className="home-btn">
+              ⚔️ Battle History
+            </NavLink>
+
+            <NavLink to="/contact" className="home-btn highlight">
+              💬 Join the Guild
+            </NavLink>
+
           </div>
         </div>
       </div>
 
-      {/* Stats Section */}
+      {/* Stats */}
       <div className="home-stats">
         <h2>Hero Stats</h2>
 
@@ -46,7 +56,6 @@ export default function Home() {
   );
 }
 
-/* --- STAT BOX COMPONENT --- */
 function Stat({ label, value }) {
   return (
     <div className="stat-box">
