@@ -74,19 +74,7 @@ export default function Experience() {
             ]}
           />
   
-          {/* STOCK PREDICTION RESEARCH */}
-          <BattleCard
-            year="2021"
-            title="Research Assistant — Hybrid Deep Learning Stock Prediction Model"
-            type="Research Quest"
-            xp="+900 XP"
-            description={[
-              "Supported research by analyzing financial datasets and identifying deep-learning-ready trends.",
-              "Created surveys, polls, and questionnaires aligned with research requirements.",
-              "Compiled findings into charts, graphs, mockups, and structured documentation.",
-            ]}
-          />
-  
+         
           {/* TECHHELPFORALL — Leadership Role */}
           <BattleCard
             year="2021"

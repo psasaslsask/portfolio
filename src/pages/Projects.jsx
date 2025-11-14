@@ -13,6 +13,13 @@ export default function Projects() {
         github={null}
         demo={null}
       />
+      <ProjectCard
+  title="Hybrid Deep Learning Model for Stock Prediction"
+  desc="A research-backed project exploring financial dataset patterns and forecasting using hybrid deep learning architectures."
+  tech={["Python", "Pandas", "Data Analysis", "Survey Design", "ML Research"]}
+  github={null}
+  demo={null}
+/>
 
       <ProjectCard
         title="SoloDiningConnect"
