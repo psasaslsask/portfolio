@@ -1,0 +1,655 @@
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* ---------- THEME VARIABLES ---------- */
+  :root {
+    --bg: #f4f4f4;
+    --text: #1a1a1a;
+    --card-bg: #ffffff;
+    --accent: #4ade80; /* emerald */
+  }
+  
+  [data-theme="dark"] {
+    --bg: #0f0f0f;
+    --text: #e5e5e5;
+    --card-bg: #1a1a1a;
+    --accent: #4ade80;
+  }
+  
+  /* ---------- LAYOUT ---------- */
+  .app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .page-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  /* ---------- SIMPLE FADE-IN ANIM ---------- */
+  .fade-in {
+    animation: fadeIn 0.4s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Scrollbar styling */
+  .page-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  .page-content::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 6px;
+  }
+  /* ---------- SIDEBAR RPG UI ---------- */
+
+.sidebar {
+    width: 270px;
+    background: var(--card-bg);
+    border-right: 3px solid var(--accent);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .avatar-section {
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+  
+  .avatar-sprite {
+    width: 110px;
+    image-rendering: pixelated;
+  }
+  
+  .player-name {
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+  }
+  
+  .player-level {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  /* Navigation */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .menu-item {
+    padding: 10px 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1rem;
+    background: var(--card-bg);
+    transition: 0.15s ease;
+  }
+  
+  .menu-item:hover {
+    border-color: var(--accent);
+    background: rgba(74, 222, 128, 0.08);
+    transform: translateX(4px);
+  }
+  
+  .menu-active {
+    border-color: var(--accent);
+    background: rgba(74, 222, 128, 0.15);
+  }
+  
+  .sidebar-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+/* ------ THEME TOGGLE BUTTON ------ */
+.toggle-btn {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 2px solid var(--accent);
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 1.2rem;
+    transition: 0.2s ease;
+  }
+  
+  .toggle-btn:hover {
+    background: var(--accent);
+    color: #000;
+  }
+/* ---------- XP BAR (RPG Style) ---------- */
+.xp-wrapper {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .xp-label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }
+  
+  .xp-bar {
+    width: 90%;
+    height: 14px;
+    margin: 0 auto;
+    background: #333;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  [data-theme="light"] .xp-bar {
+    background: #d4d4d4;
+  }
+  
+  .xp-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.4s ease;
+    border-radius: 10px;
+  }
+  
+  .xp-percent {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+/* ---------- PROJECT CARD ---------- */
+.project-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    transition: 0.2s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 8px var(--accent),
+      0 0 14px var(--accent);
+  }
+  
+  .project-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  
+  .project-desc {
+    opacity: 0.8;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .project-tech {
+    margin-bottom: 12px;
+  }
+  
+  .tech-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--accent);
+    color: black;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-right: 6px;
+  }
+  
+  .project-links {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .project-btn {
+    padding: 8px 14px;
+    background: var(--accent);
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .project-btn.demo {
+    background: #3b82f6;
+    color: white;
+  }
+/* ---------- CHARACTER PROFILE PAGE ---------- */
+
+.about-page h1 {
+    margin-bottom: 1.4rem;
+  }
+  
+  .profile-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Left side */
+  .profile-left {
+    width: 260px;
+    text-align: center;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+  }
+  
+  .profile-avatar {
+    width: 160px;
+    image-rendering: pixelated;
+    margin-bottom: 10px;
+  }
+  
+  .profile-name {
+    font-size: 1.4rem;
+    margin: 5px 0;
+  }
+  
+  .profile-title,
+  .profile-rank {
+    opacity: 0.9;
+    margin-bottom: 3px;
+  }
+  
+  .stat-block {
+    margin-top: 10px;
+    background: rgba(74, 222, 128, 0.08);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+  }
+  
+  /* Right side */
+  .profile-right {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .profile-right section {
+    margin-bottom: 1.8rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+  }
+  
+  .profile-right h3 {
+    margin-bottom: 0.7rem;
+  }
+  
+  .profile-right li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+/* ---------- SKILL TREE PAGE ---------- */
+
+.skills-page h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .skill-intro {
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .skill-section {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.2rem;
+  }
+  
+  .skill-section h2 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Skill node */
+  .skill-node {
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+    background: rgba(74, 222, 128, 0.05);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    transition: 0.2s ease;
+  }
+  
+  .skill-node:hover {
+    transform: translateX(6px);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  
+  .skill-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  
+  .skill-name {
+    font-weight: bold;
+  }
+  
+  .skill-level {
+    opacity: 0.8;
+  }
+            /* ---------- EXPERIENCE / BATTLE HISTORY PAGE ---------- */
+
+.experience-page h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .exp-intro {
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+  }
+  
+  .battle-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  
+  /* Card container */
+  .battle-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: 0.25s ease;
+  }
+  
+  .battle-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  
+  /* Header row */
+  .battle-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .battle-year {
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+  
+  .battle-type {
+    opacity: 0.8;
+    background: rgba(74, 222, 128, 0.12);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+  }
+  
+  .battle-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .battle-desc li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  
+  .battle-xp {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+  /* ---------- HOME BASE PAGE ----------- */
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Hero header */
+  .home-header {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .home-avatar {
+    width: 200px;
+    image-rendering: pixelated;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .home-text {
+    max-width: 650px;
+  }
+  
+  .home-title {
+    font-size: 2.4rem;
+    color: var(--accent);
+    text-shadow: 0 0 12px var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+  }
+  
+  .home-description {
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+  }
+  
+  /* Buttons */
+  .home-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .home-btn {
+    padding: 10px 16px;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--card-bg);
+    color: var(--text);
+    font-weight: bold;
+    transition: 0.25s ease;
+  }
+  
+  .home-btn:hover {
+    background: var(--accent);
+    color: black;
+    box-shadow: 0 0 10px var(--accent), 0 0 16px var(--accent);
+    transform: translateY(-4px);
+  }
+  
+  .home-btn.highlight {
+    border-color: #3b82f6;
+  }
+  
+  .home-btn.highlight:hover {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 0 14px #3b82f6;
+  }
+  
+  /* Stats section */
+  .home-stats h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .stat-box {
+    background: var(--card-bg);
+    padding: 1rem;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.2s ease;
+  }
+  
+  .stat-box:hover {
+    box-shadow: 0 0 10px var(--accent);
+    transform: translateY(-4px);
+  }
+  
+  .stat-label {
+    display: block;
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+  
+  .stat-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+/* ---------- CONTACT PAGE ---------- */
+
+.contact-page h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-intro {
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    max-width: 550px;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+  }
+  
+  .contact-label {
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  
+  .contact-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    background: rgba(74, 222, 128, 0.06);
+    color: var(--text);
+    outline: none;
+    transition: 0.2s ease;
+  }
+  
+  .contact-input:focus {
+    box-shadow: 0 0 10px var(--accent);
+    background: rgba(74, 222, 128, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  .contact-textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  
+  /* Send button */
+  .contact-btn {
+    margin-top: 0.6rem;
+    padding: 12px 18px;
+    border: 2px solid var(--accent);
+    background: var(--accent);
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .contact-btn:hover {
+    box-shadow: 0 0 10px var(--accent), 0 0 18px var(--accent);
+    transform: translateY(-3px);
+  }
+  
+  /* Social Links */
+  .contact-social {
+    margin-top: 2rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.6rem;
+  }
+  
+  .social-link {
+    padding: 8px 14px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--card-bg);
+    transition: 0.2s ease;
+  }
+  
+  .social-link:hover {
+    background: var(--accent);
+    color: black;
+    box-shadow: 0 0 8px var(--accent);
+  }
+    
