@@ -24,6 +24,7 @@ export default function Home() {
           <div className="home-buttons">
 
             <NavLink to="/projects" className="home-btn">
+            
               🎒 View Quests
             </NavLink>
 

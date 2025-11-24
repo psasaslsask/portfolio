@@ -9,7 +9,7 @@ export default function About() {
         
         {/* LEFT: Avatar + Basic Info */}
         <div className="profile-left">
-          <img src={warrior} alt="Hero Avatar" className="profile-avatar" />
+          <img src={warrior} alt="Hero Avatar" className="home-avatar avatar-hover" />
 
           <h2 className="profile-name">Palak Sharma</h2>
           <p className="profile-title">Class: Software Engineer</p>
