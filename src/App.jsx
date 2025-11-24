@@ -109,7 +109,7 @@ export default function App() {
           </span>
           <div>
             <p className="eyebrow">Software Engineer</p>
-            <p className="brand-name">Palak Agarwal</p>
+            <p className="brand-name">Palak Sharma</p>
           </div>
         </div>
         <nav className="nav-links" aria-label="Section links">
@@ -136,7 +136,7 @@ export default function App() {
           <div className="hero-text">
             <p className="eyebrow">Building dependable software for data-driven teams</p>
             <h1>
-              Palak Agarwal
+              Palak Sharma
               <span className="accent"> — Engineer &amp; Product Partner</span>
             </h1>
             <p className="lede">
